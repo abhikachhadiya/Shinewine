@@ -1,3 +1,10 @@
+<header>
+  {% for link in section.settings.menu.links %}
+    {{ link }}
+  {% endfor %}
+</header>
+
+
 {% schema %}
   {
     "name": "Header",
