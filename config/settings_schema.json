@@ -12,7 +12,7 @@
     "settings": [
       {
         "type": "header",
-        "content": "colors"
+        "content": "primary colors"
       },
       {
         "type": "color",
