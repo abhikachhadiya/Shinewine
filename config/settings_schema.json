@@ -8,11 +8,11 @@
     "theme_support_url": "https:\/\/support.shopify.com\/"
   },
   {
-    "name": "t:settings_schema.colors.name",
+    "name": "colors",
     "settings": [
       {
         "type": "header",
-        "content": "t:settings_schema.colors.settings.header__1.content"
+        "content": "colors"
       },
       {
         "type": "color",
