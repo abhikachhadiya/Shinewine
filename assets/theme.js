@@ -28,7 +28,8 @@
 // const Lazyimages = document.querySelectorAll("img[lazyload]");
 // const Imgobserver = new IntersectionObserver(function(entries, Imgobserver){
 //   entries.forEach(entry => {
-//       console.log(entry,"hffhgfhgff");
+//       if (!entry.isIntersecting) return;
+//       entry.target.src = Lazyimages.dataset.src;
 //   });
 // });
 
