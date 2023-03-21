@@ -7,7 +7,7 @@
       </a>
       {% endfor %}
        <a href="{{ routes.root_url }}" style="display:block;width: 100%">
-        <img lazyload class="lazyload" src="" data-src="{{ section.settings.logo | img_url: 'master' }}" />
+        <img lazyload class="lazyload" src="" srcset="{{ section.settings.logo | img_url: 'master' }}" />
       </a>
     </div>
   </div>
