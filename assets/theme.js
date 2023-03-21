@@ -29,7 +29,7 @@
 // const Imgobserver = new IntersectionObserver(function(entries, Imgobserver){
 //   entries.forEach(entry => {
 //       if (!entry.isIntersecting) return;
-//       entry.target.src = Lazyimages.dataset.src;
+//       entry.target.src = entry.target.dataset.src;
 //   });
 // });
 
