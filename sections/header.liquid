@@ -2,7 +2,7 @@
   <div class="container">
     <div class="header_logo">
       {% for i in (1..100) %}
-      <a href="{{ routes.root_url }}" style="display:block;width: 100%">
+      <a href="{{ routes.root_url }}" style="display:block;width: 100px">
         <img lazyload  style="display:block;width: 100%" class="lazyload" src="" data-src="{{ section.settings.logo | img_url: 'master' }}" />
       </a>
       {% endfor %}
