@@ -14,9 +14,9 @@ const lazyImg = (entries) => {
   entry.target.src = Lazyimages.dataset.src;
 }
 
-const Imgobserver = new IntersectionObserver(lazyImg, {
+const Imgobserver = new IntersectionObserver(function(entries,observe) {
   root: null,
-  threshold: 0,
+  threshold: 0
 });
 
 Imgobserver.observe(Lazyimages);
