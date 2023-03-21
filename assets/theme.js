@@ -12,7 +12,7 @@
           if (!entry.isIntersecting) return;
           setTimeout(function(){
               entry.target.src = entry.target.dataset.src;
-          },1000)
+          },10000)
       });
     });
     
