@@ -12,10 +12,12 @@ const Lazyimages = document.querySelector("img[lazyload]");
  
 // }
 
+const options = {};
+
 const Imgobserver = new IntersectionObserver(function(entries,Imgobserver) {
    const [entry] = entries;
   if (!entry.isIntersecting) return;
   entry.target.src = Lazyimages.dataset.src;
-});
+},options);
 
 Imgobserver.observe(Lazyimages);
