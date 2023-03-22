@@ -1,19 +1,21 @@
 <header>
   <div class="container">
-    <div class="header_logo">
-      <a href="{{ routes.root_url }}">
-        <img lazyload class="lazyload" src="{{ section.settings.logo | img_url: 'master' }}" data-src="{{ section.settings.logo | img_url: 'master' }}" />
-      </a>
+    <div class="header_wrapper">
+      <div class="header_logo">
+        <a href="{{ routes.root_url }}">
+          <img lazyload class="lazyload" src="{{ section.settings.logo | img_url: 'master' }}" data-src="{{ section.settings.logo | img_url: 'master' }}" />
+        </a>
+      </div>
+      <nav>
+        <ul class="nav_link_wrapper">
+          {% for link in section.settings.menu.links %}
+            <li>
+              <a href='{{- link.url -}}'>{{- link.title -}}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
     </div>
-    <nav>
-      <ul class="nav_link_wrapper">
-        {% for link in section.settings.menu.links %}
-          <li>
-            <a href='{{- link.url -}}'>{{- link.title -}}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </nav>
   </div>
 </header>
 
