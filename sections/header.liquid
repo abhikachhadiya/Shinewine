@@ -9,7 +9,7 @@
       <nav>
         <ul class="nav_link_wrapper">
           {% for link in section.settings.menu.links %}
-            <li>
+            <li class="nav_link">
               <a href='{{- link.url -}}'>{{- link.title -}}</a>
             </li>
           {% endfor %}
