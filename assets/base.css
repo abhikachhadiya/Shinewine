@@ -9,12 +9,15 @@ ul {
   padding: 0;
   margin: 0;
 }
-.header_wrapper {
+header .header_wrapper {
   display: flex;
   align-items: center;
 }
-ul.nav_link_wrapper {
+header .nav_link_wrapper {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+}
+header .nav_link_wrapper.nav_link a {
+    padding: 10px;
 }
