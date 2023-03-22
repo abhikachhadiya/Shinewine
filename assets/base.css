@@ -18,6 +18,6 @@ header .nav_link_wrapper {
     flex-wrap: wrap;
     align-items: center;
 }
-header .nav_link_wrapper.nav_link a {
+header .nav_link_wrapper .nav_link a {
     padding: 10px;
 }
