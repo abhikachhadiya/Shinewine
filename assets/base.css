@@ -13,3 +13,8 @@ ul {
   display: flex;
   align-items: center;
 }
+ul.nav_link_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
