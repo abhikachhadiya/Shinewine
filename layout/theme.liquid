@@ -76,7 +76,7 @@
     
     {{ 'base.css' | asset_url | stylesheet_tag }}
 
-    <script defer="defer" src="{{ 'theme.js' | asset_url }}"></script>
+    <script src="{{ 'theme.js' | asset_url }}" defer></script>
   </head>
 
   <body class="gradient">
