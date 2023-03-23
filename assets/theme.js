@@ -1,6 +1,6 @@
-// #Lazyload 
-// ===================================
-
+/*============================
+  #Lazyload 
+==============================*/
 // const Lazyimages = document.querySelectorAll("img[lazyload]");
 // const Imgobserver = new IntersectionObserver(function(entries, Imgobserver){
 //   entries.forEach(entry => {
