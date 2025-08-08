@@ -5,18 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
-    <link rel="canonical" href="{{ canonical_url }}">
-    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+         <link rel="canonical" href="{{ canonical_url }}">
+     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+     {% if settings.favicon != blank %}
+       <link rel="icon" href="{{ settings.favicon | image_url: width: 48 }}" sizes="48x48">
+     {% endif %}
 
-    <title>
-      {{ page_title }}
-    </title>
+    <title>{{ page_title }}</title>
+    {% render 'social-meta-tags' %}
 
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
 
     {{ content_for_header }}
+
+    {% liquid %}
+      assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
+      assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
+      assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+    {% endliquid %}
 
     {% style %}
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
@@ -80,6 +88,7 @@
   </head>
 
   <body class="gradient">
+    {% section 'announcement-bar' %}
     {% section 'header' %}
     
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">

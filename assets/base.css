@@ -23,3 +23,23 @@ header .nav_link_wrapper {
 header .nav_link_wrapper .nav_link a {
   padding: 10px;
 }
+
+.container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 16px;
+  background: #111;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+}
+
+.rte p { margin: 0.5rem 0; }
+
+.page-width { width: min(1200px, 92%); margin: 0 auto; }
+
+.content-for-layout { padding-bottom: 40px; }

@@ -1,0 +1,40 @@
+<section class="search container">
+  <h1>Search</h1>
+  <form action="{{ routes.search_url }}" method="get" role="search">
+    <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search products" />
+    <button type="submit">Search</button>
+  </form>
+  {% if search.performed %}
+    {% if search.results_count > 0 %}
+      <ul class="product-grid" role="list" style="--columns: 4;">
+        {% for item in search.results %}
+          {% if item.object_type == 'product' %}
+            <li class="product-card">
+              <a href="{{ item.url }}">
+                {% if item.featured_image %}
+                  {{ item.featured_image | image_url: width: 800 | image_tag: loading: 'lazy' }}
+                {% endif %}
+                <h3>{{ item.title }}</h3>
+                {% render 'price', product: item %}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No results found.</p>
+    {% endif %}
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Main search",
+  "settings": []
+}
+{% endschema %}
+
+{% stylesheet %}
+.product-grid { display: grid; grid-template-columns: repeat(var(--columns, 4), 1fr); gap: 16px; list-style: none; padding: 0; }
+.product-card { border: 1px solid #eee; padding: 8px; text-align: center; }
+{% endstylesheet %}

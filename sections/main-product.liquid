@@ -1,0 +1,44 @@
+<section class="product container">
+  <div class="product__grid">
+    <div class="product__media">
+      {% if product.featured_image %}
+        {{ product.featured_image | image_url: width: 1600 | image_tag: sizes: '(min-width: 990px) 50vw, 100vw' }}
+      {% endif %}
+    </div>
+    <div class="product__info">
+      <h1>{{ product.title }}</h1>
+      {% render 'price', product: product %}
+      <div class="rte">{{ product.description }}</div>
+      <form method="post" action="/cart/add" id="product-form-{{ section.id }}">
+        {% if product.variants.size > 1 %}
+          <label for="variant-select-{{ section.id }}">Choose an option</label>
+          <select id="variant-select-{{ section.id }}" name="id">
+            {% for variant in product.variants %}
+              <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>
+                {{ variant.title }} - {{ variant.price | money }}
+              </option>
+            {% endfor %}
+          </select>
+        {% else %}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        {% endif %}
+        <button type="submit" class="button" {% unless product.available %}disabled{% endunless %}>
+          {% if product.available %}Add to cart{% else %}Sold out{% endif %}
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main product",
+  "settings": []
+}
+{% endschema %}
+
+{% stylesheet %}
+.product__grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+@media (min-width: 990px){ .product__grid { grid-template-columns: 1fr 1fr; } }
+.button { display: inline-block; padding: 10px 16px; background: #111; color: #fff; text-decoration: none; border: 0; cursor: pointer; }
+{% endstylesheet %}
