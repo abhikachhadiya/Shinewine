@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "not_found": {
+      "type": "rich-text",
+      "settings": {
+        "heading": "Page not found",
+        "text": "<p>The page you were looking for does not exist.</p>"
+      }
+    }
+  },
+  "order": ["not_found"]
+}

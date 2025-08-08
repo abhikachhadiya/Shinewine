@@ -1,0 +1,45 @@
+<section class="collection container">
+  <h1>{{ collection.title }}</h1>
+  {% if collection.description != blank %}
+    <div class="rte">{{ collection.description }}</div>
+  {% endif %}
+  {% paginate collection.products by section.settings.products_per_page %}
+    <ul class="product-grid" role="list" style="--columns: {{ section.settings.columns_desktop }};">
+      {% for product in collection.products %}
+        <li class="product-card">
+          <a href="{{ product.url }}">
+            {% if product.featured_image %}
+              {{ product.featured_image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 25vw, 50vw' }}
+            {% endif %}
+            <h3>{{ product.title }}</h3>
+            {% render 'price', product: product %}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% if paginate.pages > 1 %}
+      <nav class="pagination" role="navigation">
+        {% if paginate.previous %}<a href="{{ paginate.previous.url }}">Previous</a>{% endif %}
+        <span>{{ paginate.current_page }} / {{ paginate.pages }}</span>
+        {% if paginate.next %}<a href="{{ paginate.next.url }}">Next</a>{% endif %}
+      </nav>
+    {% endif %}
+  {% endpaginate %}
+</section>
+
+{% schema %}
+{
+  "name": "Main collection",
+  "settings": [
+    { "type": "range", "id": "products_per_page", "min": 8, "max": 48, "step": 4, "label": "Products per page", "default": 24 },
+    { "type": "range", "id": "columns_desktop", "min": 2, "max": 5, "step": 1, "label": "Columns on desktop", "default": 4 }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+.product-grid { display: grid; grid-template-columns: repeat(var(--columns, 4), 1fr); gap: 16px; list-style: none; padding: 0; }
+.product-card { border: 1px solid #eee; padding: 8px; text-align: center; }
+.pagination { display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 24px; }
+{% endstylesheet %}

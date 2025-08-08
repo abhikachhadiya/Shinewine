@@ -23,6 +23,12 @@
     ]
   },
   {
+    "name": "icons",
+    "settings": [
+      { "type": "image_picker", "id": "favicon", "label": "Favicon" }
+    ]
+  },
+  {
     "name": "typography",
     "settings": [
       {
